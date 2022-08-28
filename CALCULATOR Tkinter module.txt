@@ -1,0 +1,105 @@
+#15 CALCULATOR
+
+#import tkinter module
+from tkinter import *
+
+#create gui window
+window=Tk()
+window.geometry("320x320")
+
+#add widgets
+window.title="SIMPLE CALCULATOR"
+e=Entry(window,width=48,border=5)
+e.place(x=0,y=0)
+
+def btclick(num):
+    current=e.get()
+    e.delete(0,END)
+    e.insert(0,str(current)+str(num))
+b=Button(window,text="7",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(7),activebackground="blue",activeforeground="white")
+b.place(x=10,y=60)
+b=Button(window,text="8",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(8),activebackground="blue",activeforeground="white")
+b.place(x=80,y=60)
+b=Button(window,text="9",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(9),activebackground="blue",activeforeground="white")
+b.place(x=150,y=60)
+
+
+b=Button(window,text="4",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(4),activebackground="blue",activeforeground="white")
+b.place(x=10,y=120)
+b=Button(window,text="5",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(5),activebackground="blue",activeforeground="white")
+b.place(x=80,y=120)
+b=Button(window,text="6",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(6),activebackground="blue",activeforeground="white")
+b.place(x=150,y=120)
+
+
+b=Button(window,text="1",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(1),activebackground="blue",activeforeground="white")
+b.place(x=10,y=180)
+b=Button(window,text="2",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(2),activebackground="blue",activeforeground="white")
+b.place(x=80,y=180)
+b=Button(window,text="3",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(3),activebackground="blue",activeforeground="white")
+b.place(x=150,y=180)
+
+def clear():
+    e.delete(0,END)
+b=Button(window,text="C",width=10,height=3,font=("bold",10),command=clear,activebackground="red",activeforeground="white")
+b.place(x=10,y=240)
+b=Button(window,text="0",width=10,height=3,bg="gray",font=("bold",10),command=lambda:btclick(0),activebackground="blue",activeforeground="white")
+b.place(x=80,y=240)
+
+def equ():
+    secondno=e.get()
+    e.delete(0,END)
+    if math=="addition":
+        e.insert(0,f+int(secondno))
+    elif math=="subtraction":
+        e.insert(0,f-int(secondno))
+    elif math=="multiplication":
+        e.insert(0,f*int(secondno))
+    elif math=="division":
+        e.insert(0,f/int(secondno))
+    
+b=Button(window,text="=",width=10,height=3,font=("bold",10),command=equ,activebackground="red",activeforeground="white")
+b.place(x=150,y=240)
+#**********************************************************************************
+def add():
+    firstno=e.get()
+    global math
+    math="addition"
+    global f
+    f=int(firstno)
+    e.delete(0,END)
+b=Button(window,text="+",width=10,height=3,font=("bold",10),command=add,activebackground="red",activeforeground="white")
+b.place(x=220,y=240)
+
+def sub():
+    firstno=e.get()
+    global math
+    math="subtraction"
+    global f
+    f=int(firstno)
+    e.delete(0,END)
+b=Button(window,text="-",width=10,height=3,font=("bold",10),command=sub,activebackground="red",activeforeground="white")
+b.place(x=220,y=180)
+
+def mul():
+    firstno=e.get()
+    global math
+    math="multiplication"
+    global f
+    f=int(firstno)
+    e.delete(0,END)
+b=Button(window,text="*",width=10,height=3,font=("bold",10),command=mul,activebackground="red",activeforeground="white")
+b.place(x=220,y=120)
+
+def div():
+    firstno=e.get()
+    global math
+    math="division"
+    global f
+    f=int(firstno)
+    e.delete(0,END)
+b=Button(window,text="/",width=10,height=3,font=("bold",10),command=div,activebackground="red",activeforeground="white")
+b.place(x=220,y=60)
+
+#mainloop
+window.mainloop()
